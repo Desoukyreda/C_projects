@@ -114,25 +114,6 @@ int find(int num,Tasks *p)    // function which return index of task which you w
 }
 
 
-
-/*void fit (Tasks *ptr)
-{
-     for (int i = 1; i < number_task; i++)
-     {
-      for(int j =1 ; j <number_task-i+1 ; j++ )
-      {
-         if((ptr+j)->ID < (ptr+j+1)->ID)
-         {
-            Tasks swap = *(ptr+j) ;
-            *(ptr+j) = *(ptr+j+1) ;
-            *(ptr+j+1) = swap ;
-
-         }
-      }
-   }
-
-}*/
-
 void delete_task(int id ,Tasks *ptr)  // function to delete task by (id) .
 {
     if(size==0)
@@ -146,7 +127,7 @@ void delete_task(int id ,Tasks *ptr)  // function to delete task by (id) .
 
       *(ptr+ch) = *(ptr+size-1) ;   // swap task which you want to delete with last task .
       size--;
-      //fit(ptr);
+     printf("\nComplete delete\n");
 
       return;
    }else
@@ -158,22 +139,7 @@ void delete_task(int id ,Tasks *ptr)  // function to delete task by (id) .
 
 //-------------------------------------------------------------------
 
-/*void sort(Tasks *ptr)
-{
-   for (int i = 0; i < size; i++)
-   {
-      for(int j =0 ; j <size-i ; j++ )
-      {
-         if((ptr+j)->task_state < (ptr+j+1)->task_state)
-         {
-            Tasks swap = *(ptr+j) ;
-            *(ptr+j) = *(ptr+j+1) ;
-            *(ptr+j+1) = swap ;
-         }
-      }
-   }
 
-}*/
 
 void show_tasks(Tasks *ptr)  // function to show tasks sorted from urgent to not .
 {
@@ -182,7 +148,7 @@ void show_tasks(Tasks *ptr)  // function to show tasks sorted from urgent to not
         printf("there is not existing any tasks ..\n");
         return;
     }
-  //sort(ptr);
+
   printf("---------------------------------------------------\n");
   int index = 0;
   for (size_t i = 0; i < size; i++)  // print urgent first
@@ -227,10 +193,15 @@ void list(Tasks * ptr)   // list of operation which you can to do .
         add_task(&ptr);
         break;
     case 2 :
+         if(size == 0)
+    {
+        printf("there is not existing any tasks ..\n");
+    } else {
         int id ;
         printf("enter the ID you want to delete : ");
         scanf("%d",&id);
         delete_task(id,ptr);
+           }
         break;
     case 3 :
         show_tasks(ptr);

@@ -15,13 +15,12 @@ typedef struct {
 }Tasks;
 
 int login();
-//void infinity();
+
 void init(Tasks**);
 void add_task(Tasks**);
 void delete_task(int,Tasks*);
 int find(int,Tasks*);
-//void fit(Tasks*);
-//void sort(Tasks*);
+
 void show_tasks(Tasks*);
 void list(Tasks *);
 void delete_all_task(Tasks**);
